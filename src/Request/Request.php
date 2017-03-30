@@ -25,15 +25,13 @@ class Request implements RequestInterface{
 
     public function perform(OperationInterface $operation)
     {
-        $uri = sprintf($this->requestScheme, $operation->getName()). '/' . $this->config->getApiKey();
-
         $data = [
             'key' => urlencode($this->config->getAccessToken()),
             'action' => $operation->getName(),
             'data' => json_encode($operation->getOperationParameter())
         ];
 
-        return $this->curlExec($uri, $data);
+        return $this->curlExec($this->requestScheme, $data);
     }
 
     protected function curlExec($uri, $data){
