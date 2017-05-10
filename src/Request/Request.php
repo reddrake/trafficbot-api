@@ -9,7 +9,7 @@ class Request implements RequestInterface{
 
     private $options = [];
 
-    protected $requestScheme = 'http://www.trafficbot.uk/api.php';
+    protected $requestScheme = 'https://www.trafficbot.uk/api.php';
 
     protected $config;
 
